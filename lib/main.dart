@@ -30,6 +30,11 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +42,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -46,6 +51,38 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.blue,
                 child: Text('Chart!'),
                 elevation: 5,
+              ),
+            ),
+            Card(
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      controller: titleController,
+                      // onChanged: (val) {
+                      //   titleInput = val;
+                      // },
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                      controller: amountController,
+                      // onChanged: (val) => amountInput = val,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        // print(titleInput);
+                        // print(amountInput);
+                        print(titleController.text);
+                      },
+                      textColor: Colors.purple,
+                      child: Text('Add Transaction'),
+                    ),
+                  ],
+                ),
               ),
             ),
             Column(
